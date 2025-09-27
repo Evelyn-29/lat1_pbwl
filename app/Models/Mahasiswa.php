@@ -22,5 +22,12 @@ class Mahasiswa extends Model
         'email',
         'telepon',
         'alamat',
+        'foto', // tambahkan
     ];
+
+    // opsional: accessor untuk url foto
+    public function getFotoUrlAttribute()
+    {
+        return $this->foto ? asset('storage/' . $this->foto) : asset('images/default-avatar.png');
+    }
 }
